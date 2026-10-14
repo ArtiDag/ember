@@ -1,0 +1,50 @@
+appId: app.ember.pet
+productName: Ember
+copyright: Ember contributors
+directories:
+  buildResources: build
+  output: release/${version}
+files:
+  - out/**/*
+  - package.json
+extraResources:
+  - from: resources/characters
+    to: characters
+  - from: resources/icons
+    to: icons
+  - from: THIRD_PARTY_NOTICES.md
+    to: THIRD_PARTY_NOTICES.md
+asar: true
+
+mac:
+  target:
+    - target: dmg
+      arch: [arm64, x64]
+  category: public.app-category.entertainment
+  icon: build/icon.png
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  # No Dock icon: the app is controlled from the menu bar.
+  extendInfo:
+    LSUIElement: true
+  # Signing and notarization are enabled via environment variables — see README, "Signing".
+dmg:
+  artifactName: ${productName}-${version}-mac-${arch}.${ext}
+  # no .blockmap: it is only needed for auto-updates, which Ember does not have
+  writeUpdateInfo: false
+
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: build/icon.png
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  artifactName: ${productName}-${version}-win-${arch}-setup.${ext}
+  # no .blockmap (see dmg)
+  differentialPackage: false

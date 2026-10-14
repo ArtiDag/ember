@@ -1,0 +1,45 @@
+{
+  "name": "ember",
+  "productName": "Ember",
+  "version": "0.1.0",
+  "description": "Ember — a desktop pet for macOS and Windows",
+  "main": "./out/main/index.js",
+  "author": "Artem Dosaev",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev": "electron-vite dev --watch",
+    "start": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "vitest run",
+    "build": "npm run typecheck && electron-vite build",
+    "dist": "npm run build && electron-builder",
+    "dist:mac": "npm run build && electron-builder --mac -c.mac.identity=- && node scripts/set-file-icons.mjs",
+    "dist:win": "npm run build && electron-builder --win && node scripts/set-file-icons.mjs",
+    "generate:assets": "node scripts/generate-assets.mjs",
+    "dist:mac:signed": "npm run build && electron-builder --mac",
+    "generate:characters": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/generate-characters.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.7",
+    "vitest": "^5.0.3"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true,
+    "electron-winstaller@5.4.0": true
+  }
+}

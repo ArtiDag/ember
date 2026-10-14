@@ -1,0 +1,301 @@
+{
+  "formatVersion": 1,
+  "name": "Бес",
+  "author": "Artem Dosaev (animated by src/renderer/common/rigs/blackCat.ts)",
+  "license": "All rights reserved — LICENSE-CHARACTERS.md",
+  "facing": "right",
+  "pixelArt": false,
+  "rig": "blackcat",
+  "pace": 0.55,
+  "sheets": {
+    "main": {
+      "file": "silhouette.svg",
+      "frameWidth": 220,
+      "frameHeight": 240,
+      "columns": 1,
+      "rows": 1
+    }
+  },
+  "animations": {
+    "idle": {
+      "sheet": "main",
+      "frames": [
+        0
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "walk": {
+      "sheet": "main",
+      "frames": [
+        0
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "drag": {
+      "sheet": "main",
+      "frames": [
+        0
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "talk": {
+      "sheet": "main",
+      "frames": [
+        0
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "music": {
+      "sheet": "main",
+      "frames": [
+        0
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "sleep": {
+      "sheet": "main",
+      "frames": [
+        0
+      ],
+      "fps": 1,
+      "loop": true
+    },
+    "laugh": {
+      "sheet": "main",
+      "frames": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "love": {
+      "sheet": "main",
+      "frames": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "dizzy": {
+      "sheet": "main",
+      "frames": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "yawn": {
+      "sheet": "main",
+      "frames": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "scratch": {
+      "sheet": "main",
+      "frames": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "peek": {
+      "sheet": "main",
+      "frames": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fps": 10,
+      "loop": false
+    }
+  },
+  "reactions": {
+    "click": [
+      "laugh",
+      "love"
+    ],
+    "rapidClick": "dizzy",
+    "idle": [
+      "scratch",
+      "peek"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' ws:; base-uri 'none'; form-action 'none'"
+    />
+    <title>Ember</title>
+    <style>
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: transparent; user-select: none; -webkit-user-select: none; cursor: default; }
+      /* сверху и снизу — место под хвостик (до 11px) */
+      body { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 15px 12px; box-sizing: border-box; }
+      body.below { justify-content: flex-start; }
+      .bubble {
+        /* светлое облачко (по умолчанию): белое, тонкая тёмная обводка, тёмный текст */
+        --bg: #fffdf8; --fg: #2a2620; --line: #2a2620;
+        position: relative; max-width: 100%; box-sizing: border-box;
+        /* максимально скруглённое облачко — «таблетка»; боковые отступы, чтобы строки не упирались в скругление */
+        background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 999px;
+        padding: 11px 23px 12px;
+        font: 600 14px/1.35 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        box-shadow: 0 4px 0 rgba(42, 38, 32, 0.18), 0 8px 18px rgba(0, 0, 0, 0.18);
+        text-align: center; text-wrap: balance;
+        opacity: 0; transform: translateY(6px) scale(0.92); transform-origin: 50% 100%;
+        transition: opacity 0.2s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      /* тёмное облачко — цвета кролика, светлый текст, без обводки */
+      body.dark .bubble { --bg: #141416; --fg: #fbfbf7; --line: #141416; box-shadow: 0 4px 0 rgba(0, 0, 0, 0.16), 0 8px 18px rgba(0, 0, 0, 0.28); }
+      body.below .bubble { transform-origin: 50% 0%; transform: translateY(-6px) scale(0.92); }
+      .bubble.on { opacity: 1; transform: none !important; }
+      /* хвостик — мягкий: бока плавно вытекают из края облачка, кончик скруглён. Линия y=0 рисунка совпадает
+         с серединой обводки облачка (100% — это внутренний край обводки, середина на 0.5px ниже), над ней заливка закрывает обводку в месте стыка */
+      .tail { position: absolute; top: calc(100% - 1.5px); margin-left: -12px; width: 24px; height: 14px; overflow: visible; }
+      .tail .fill { fill: var(--bg); }
+      .tail .line { fill: none; stroke: var(--line); stroke-width: 1; }
+      body.below .tail { top: auto; bottom: calc(100% - 1.5px); transform: scaleY(-1); }
+      @media (prefers-reduced-motion: reduce) { .bubble { transition: opacity 0.2s ease; transform: none; } }
+    </style>
+  </head>
+  <body>
+    <div class="bubble" id="bubble"><span id="text"></span><svg class="tail" id="tail" viewBox="0 -2 24 14" aria-hidden="true"><path class="fill" d="M0 -2H24V0C18 0 16.2 3 14.4 7.4Q12 12.6 9.6 7.4C7.8 3 6 0 0 0Z" /><path class="line" d="M0 0C6 0 7.8 3 9.6 7.4Q12 12.6 14.4 7.4C16.2 3 18 0 24 0" /></svg></div>
+    <script type="module" src="./bubble/main.ts"></script>
+  </body>
+</html>
